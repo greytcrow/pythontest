@@ -49,5 +49,5 @@ while current_page.url != finish_line.url:
     ]
     answers = inquirer.prompt(questions, theme=GreenPassion())
     interm = (URL_START +
-              answers['link'].replace(" ", "_"))
+              urllib.parse.quote_plus(answers['link'].replace(" ", "_")))
     current_page = urllib.request.urlopen(interm)
